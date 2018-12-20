@@ -88,16 +88,25 @@ def export_ions(ions_of_given_mass, peak_num_of_ions, output_file):
 
 	with open(output_file, 'w') as fobj:
 		for t in sorted_by_peak_num:
+			print(t)
 			scan = t[0]
 			fobj.write(ions_of_given_mass[scan])
 			fobj.write("\n")
 
 		
 
-mgf_file = "/Users/hao/data/tmp/FAB_MAB_TCEP_HCD_110626213244_msdeconv.mgf"
-pep_mass = 23556
+
+#mgf_file = "/Users/hao/data/tmp/FAB_MAB_TCEP_HCD_110626213244_msdeconv.mgf"
+#mgf_file = "D:/Hao/data/for_analysis/mgf/FAB_reduced_2_CID_msdeconv.mgf"
+#mgf_file = "D:/Hao/data/for_analysis/mgf/FAB_reduced_1_ETD_msdeconv.mgf"
+#mgf_file = "D:/Hao/data/for_analysis/mgf/FAB_MAB_TCEP_HCD_110626213244_msdeconv.mgf"
+#mgf_file = "D:/Hao/data/for_analysis/mgf/FAB_MAB_TCEP_ETD_msdeconv.mgf"
+mgf_file = "D:/Hao/data/for_analysis/mgf/FAB_MAB_TCEP_HCD_110626213244_msdeconv_valublePeak.mgf"
+
+
+pep_mass = 23556.8
 output_file = mgf_file.split('.')[0] + ".pep_mass" + str(pep_mass) + ".mgf"
-mass_diff_tolerance = 1
+mass_diff_tolerance = 0.5
 ion_lines = load_mgf_file(mgf_file)
 print(len(ion_lines))
 (ions_of_given_mass, peak_num_of_ions) = filter_ios_by_mass(ion_lines, pep_mass, mass_diff_tolerance)
