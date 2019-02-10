@@ -2,8 +2,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-true_peaks_file = "D:/Hao/data/for_analysis/ppmDistribution/real_peaks.all.txt"
-theoretic_peaks_file = "D:/Hao/data/for_analysis/ppmDistribution/theoretic_peaks.txt"
+true_peaks_file = "D:/Hao/data/for_analysis/ppmDistribution/real_peaks.txt"
+theoretic_peaks_file = "D:/Hao/data/for_analysis/ppmDistribution/theoretic_peaks.shuffled"
 
 true_peaks = pd.read_csv(true_peaks_file, sep='\t')
 theoretic_peaks = pd.read_csv(theoretic_peaks_file, sep=' ');
@@ -33,18 +33,19 @@ for i in range(0, len1):
 		j += 1
 
 print(len(ppm_values))
-plt.title("Histogram of ppm distribution of matched peaks.all")
+plt.title("Histogram of ppm distribution of matched peaks.shuffled")
 plt.xlabel("ppm")
 plt.ylabel("frequency")
 plt.hist(ppm_values)
 
 
-plt.title("mass vs ppm of matched peaks.all")
+"""
+plt.title("mass vs ppm of matched peaks.shuffled")
 plt.xlabel("mass")
 plt.ylabel("ppm")
 mass_list = true_peaks['mass'].tolist()[1:-1]	#The first is 0, the last of true_peaks are precurMass
 plt.scatter(mass_list, ppm_values)
-
+"""
 plt.show()
 
 

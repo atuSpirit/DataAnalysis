@@ -14,7 +14,7 @@ def transfer_each_seq(proteo_seq):
 	proteo_seq = re.sub(r'\)', '', proteo_seq)
 	return proteo_seq
 
-file = "d:/Hao/data/for_analysis/topPIC/hcd.vs.true.ToPIC"
+file = "d:/Hao/data/for_analysis/topPIC/hcd1.txt"
 fasta_seq = ""
 with open(file) as fobj:	
 	line = fobj.readline()	#header
