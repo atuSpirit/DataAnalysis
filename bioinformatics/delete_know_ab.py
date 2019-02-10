@@ -45,8 +45,8 @@ def seqs_to_file(sequences, output_file):
 			out_obj.write(line)
 
 
-blastp_file = "/Users/hao/data/tmp/seq.vs.mAB"
-database_file = "/Users/hao/data/database/mAB_database.ann"
+blastp_file = "D:/Hao/data/database/antibody_trim/true_seq.vs.mAB_database.blastp.out"
+database_file = "D:/Hao/data/database/antibody_trim/mAB_database.ann"
 output_file = database_file + '.trim'
 seq_ids = extract_protein_id_from_blastp_result(blastp_file)
 new_database_seqs = exclude_seq_from_antibody_database(database_file, seq_ids)
