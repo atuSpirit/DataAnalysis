@@ -135,13 +135,20 @@ def test():
 
 psm_file = "C:/Users/hlin/PeaksExports/Nuno2016_LC_SPIDER_12/DB search psm.csv"
 psm_file = "C:/Users/hlin/PeaksExports/PolyClonal_ab19001_SPIDER_7/DB search psm.csv"
+psm_file = "C:/Users/hlin/PeaksExports/Hieu_WlgG1_heavy_SPIDER_7/DB search psm.csv"
+psm_file = "D:/Hao/result/Waters_mAB_SPIDER_9/DB search psm.csv"
+psm_file = "D:/Hao/result/ab19001.5enzymes_SPIDER_66/DB search psm.csv"
 psm_pids = read_psm_file(psm_file)
 pid_psms = get_pid_psms_map(psm_pids)
 top_k = 8
 template_pid_list = pick_top_k_pids(pid_psms, top_k + 1)	# plus 1 due to empty pid
 
 database_file = "D:/Hao/data/database/antibodies_with_contaminants.fasta"
+database_file = "D:/Hao/result/ab19001.5enzymes_SPIDER_66/candidate_template3.fasta"
 template_file = "D:/Hao/data/Polyclonal/ab19001Result/ab19001.template_top" + str(top_k) + ".fasta"
+template_file = "D:/Hao/data/Hieu_data/WlgG1_heavy.template_top" + str(top_k) + ".fasta";
+template_file = "D:/Hao/result/Waters_mAB_SPIDER_9/Waters_mAB.template_top" + str(top_k) + ".fasta"
+template_file = "D:/Hao/result/ab19001.5enzymes_SPIDER_66/ab19001.5enzymes.template_top" + str(top_k) + ".fasta"
 export_template_seqs(template_pid_list, database_file, template_file)
 
 
